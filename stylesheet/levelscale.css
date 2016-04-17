@@ -42,7 +42,7 @@ body{
 	margin: 0rem;
 	color: #F15454;
 	/*top: 0.4rem;*/
-	bottom: -0.07rem;
+	bottom: -0.05rem;
 	left: 0rem;
 }
 .content .sign1 li{
@@ -143,7 +143,7 @@ body{
 	opacity:1;
 }
 .content1 .sign1{
-	bottom: 0.2rem;
+	bottom: 0.26rem;
 }
 .content1 .sign1 li{
 	height: 0.45rem;
@@ -196,7 +196,7 @@ body{
 	width: 2.3rem;
 }
 .content2 .sign1{
-	bottom: 0.2rem;
+	bottom: 0.26rem;
 }
 .content2 .sign1 li{
 	height: 0.45rem;
