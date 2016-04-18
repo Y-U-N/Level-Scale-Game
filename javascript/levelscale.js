@@ -36,11 +36,109 @@
 	var timer = null;
 	var firstkill = 0;//第一关是否第一个按键就对，0为不对，1为对
 	// var scoreflag = 0;//0表示未显示成绩，1表示已经显示过成绩了
+	scaleplay();
+	gameInit();
 	setTimeout(function(){
-		levelFlag = 0;
-		gameInit();
 		play();
-	},3000)
+	},7000)
+	function scaleplay(){
+		var scaletimer = null;
+		if(levelFlag == 0)
+		{
+			var j = 4;
+			clearInterval(scaleplay);
+			scaletimer = setInterval(function(){
+				if(j<0)
+				{
+					clearInterval(scaleplay);
+				}
+				else
+				{
+					// alert(j);
+					aAudio[0][j].play();
+					aSpan[0][j].style.backgroundColor = "#F15454";
+					if((j+1) != 5)
+					{
+						aSpan[0][j+1].style.backgroundColor = "#F9F8F3";
+					}
+					j = j-1;
+				}
+			},1000);
+			setTimeout(function(){
+				aSpan[0][0].style.backgroundColor = "#F9F8F3";
+			},6000);
+			// aSpan[0][0].style.backgroundColor = "#F9F8F3";
+		}
+		else if(levelFlag == 1)
+		{
+			var j = 4;
+			clearInterval(scaleplay);
+			scaletimer = setInterval(function(){
+				if(j<0)
+				{
+					clearInterval(scaleplay);
+				}
+				else
+				{
+					aAudio[1][j].play();
+					for(var i=0;i<3;i++)
+					{
+						aSpan[1][j+i*5].style.backgroundColor = "#F15454";
+					}
+					
+					if((j+1) != 5)
+					{
+						for(var i=0;i<3;i++)
+						{
+							aSpan[1][j+i*5+1].style.backgroundColor = "#F9F8F3";
+						}
+					}
+					j = j-1;
+				}
+			},1000);
+			setTimeout(function(){
+				for(var i=0;i<3;i++)
+				{
+					aSpan[1][i*5].style.backgroundColor = "#F9F8F3";
+				}
+			},6000);
+		}
+		else
+		{
+			var j = 7;
+			clearInterval(scaleplay);
+			scaletimer = setInterval(function(){
+				if(j<0)
+				{
+					clearInterval(scaleplay);
+				}
+				else
+				{
+					aAudio[2][j].play();
+					for(var i=0;i<5;i++)
+					{
+						aSpan[2][j+i*8].style.backgroundColor = "#F15454";
+					}
+					
+					if((j+1) != 8)
+					{
+						for(var i=0;i<5;i++)
+						{
+							aSpan[2][j+i*8+1].style.backgroundColor = "#F9F8F3";
+						}
+					}
+					j = j-1;
+				}
+			},1000);
+			setTimeout(function(){
+				for(var i=0;i<5;i++)
+				{
+					aSpan[2][i*8].style.backgroundColor = "#F9F8F3";
+				}
+			},9000);
+		}
+	}
+	scaleplay();
 	function gameInit(){
 		//题目初始化，随机生成题目
 		for(var i=0;i<3;i++)
@@ -248,7 +346,15 @@
 			}
 			oContent[levelFlag].style.display = "block";
 			startMove(oContent[levelFlag],{opacity: 100},35,function(){
-				play();
+				scaleplay();
+				if(levelFlag == 2)
+				{
+					setTimeout(play,10000);
+				}
+				else
+				{
+					setTimeout(play,7000);
+				}
 			});
 		});
 	}
