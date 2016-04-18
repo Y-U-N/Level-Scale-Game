@@ -289,7 +289,6 @@
 					leveltime[2] = (stop-start)/1000;
 					oGametime[m].innerHTML = "第三关用时" + ((stop-start)/1000).toFixed(3) + "秒！";
 					oTotaltime.innerHTML = "三关时间总计" + (leveltime[0]+leveltime[1]+leveltime[2]).toFixed(3) + "秒！";
-					console.log(leveltime);
 				}
 				oCover[levelFlag].style.display = "block";
 				for(var i=0;i<(m*2+1);i++)
@@ -317,7 +316,18 @@
 		play();
 	}
 	oGamechange.onclick = function(){
-		gameInit();
+		if(levelFlag == 2)
+		{
+			for(var j=0;j<5;j++)
+			{
+				aListen[2][j] = Math.floor(Math.random()*8+j*8);
+			}
+			
+		}
+		else
+		{
+			gameInit();
+		}	
 		play();
 		for(var i=0;i<aLi[levelFlag].length;i++)
 		{
