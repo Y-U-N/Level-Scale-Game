@@ -48,9 +48,13 @@
 			var j = 4;
 			clearInterval(scaleplay);
 			scaletimer = setInterval(function(){
-				if(j<0)
+				if(j<-1)
 				{
 					clearInterval(scaleplay);
+				}
+				else if(j == -1)
+				{
+					aSpan[0][0].style.backgroundColor = "#F9F8F3";
 				}
 				else
 				{
@@ -61,13 +65,9 @@
 					{
 						aSpan[0][j+1].style.backgroundColor = "#F9F8F3";
 					}
-					j = j-1;
+					j--;
 				}
 			},1000);
-			setTimeout(function(){
-				aSpan[0][0].style.backgroundColor = "#F9F8F3";
-			},6000);
-			// aSpan[0][0].style.backgroundColor = "#F9F8F3";
 		}
 		else if(levelFlag == 1)
 		{
@@ -93,7 +93,7 @@
 							aSpan[1][j+i*5+1].style.backgroundColor = "#F9F8F3";
 						}
 					}
-					j = j-1;
+					j--;
 				}
 			},1000);
 			setTimeout(function(){
@@ -127,7 +127,7 @@
 							aSpan[2][j+i*8+1].style.backgroundColor = "#F9F8F3";
 						}
 					}
-					j = j-1;
+					j--;
 				}
 			},1000);
 			setTimeout(function(){
