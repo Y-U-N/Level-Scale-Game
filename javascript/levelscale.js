@@ -1,10 +1,10 @@
 (function () {
 	document.documentElement.style.fontSize = document.documentElement.clientHeight/6.67+'px';
 	var oBody = document.getElementsByTagName('body')[0];
-	var oDownload = document.getElementsByClassName('download')[0];
+	// var oDownload = document.getElementsByClassName('download')[0];
 	var oCover = document.getElementsByClassName('cover');	//三关各自的遮罩
 	oBody.style.height = document.documentElement.clientHeight+"px";
-	oDownload.style.width = document.documentElement.clientWidth+"px";
+	// oDownload.style.width = document.documentElement.clientWidth+"px";
 	for(var i=0;i<(oCover.length);i++)
 	{
 		oCover[i].style.width = document.documentElement.clientWidth+"px";
